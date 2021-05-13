@@ -12,7 +12,7 @@ This Terraform will deploy:
 - EC2 instances (2) running Linux and Apache webserver (httpd)
 - Security Groups
 - Applicaton Load Balancer with a health check
-- I have included a key pair to use for this Terraform.
+- I have included a key pair to use for this Terraform if you want to login to the instances for anything.
 
 # Requirements
 1. AWS tenant and user account with admin rights
