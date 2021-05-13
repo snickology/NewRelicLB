@@ -1,9 +1,3 @@
-# vars passed from ../main.tf
-variable "webserver-port" {}
-variable "out-vpc-us-west-1" {}
-variable "out-subnet-us-west-1-a" {}
-variable "out-subnet-us-west-1-b" {}
-
 # Create ALB
 resource "aws_lb" "webserver-lb" {
   name               = "webserver-lb"
@@ -14,6 +8,10 @@ resource "aws_lb" "webserver-lb" {
   tags = {
     Name = "NewRelic-LB"
   }
+}
+
+output "out-webserver-lb" {
+  value = aws_lb.webserver-lb
 }
 
 # Create target group
