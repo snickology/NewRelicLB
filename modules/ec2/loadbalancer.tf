@@ -21,7 +21,6 @@ resource "aws_alb_target_group" "app-lb-tg" {
   name        = "app-lb-tg"
   port        = var.webserver-port
   target_type = "instance"
-  #vpc_id      = var.out-vpc-us-west-1.id
   vpc_id   = var.out-vpc-us-west-1
   protocol = "HTTP"
   health_check {

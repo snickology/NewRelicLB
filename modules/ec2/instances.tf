@@ -21,7 +21,6 @@ resource "aws_instance" "webserver-instance" {
   key_name                    = aws_key_pair.webserver-key.key_name
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.webserver-sg.id]
-  #subnet_id                   = var.out-subnet-us-west-1.id
   subnet_id = var.out-subnet-us-west-1-a
   tags = {
     Name = join("_", ["webserver", count.index + 1])

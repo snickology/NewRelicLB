@@ -64,7 +64,7 @@ resource "aws_route_table" "internet_route" {
   }
 }
 
-# Overwrite default route table of vpc-us-west-1 with our new route table entries created above
+# Overwrite default route table of vpc-us-west-1 with new route table entries created above
 resource "aws_main_route_table_association" "default-rt-assoc" {
   vpc_id         = aws_vpc.vpc-us-west-1.id
   route_table_id = aws_route_table.internet_route.id

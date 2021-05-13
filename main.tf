@@ -21,7 +21,7 @@ module "vpc" {
   subnet-cidr-block2 = var.subnet-cidr-block2
 }
 
-# Create Instances and Load Balancer
+# Create Security Groups, Instances, and Load Balancer
 module "ec2" {
   source                 = "./modules/ec2"
   instance-count         = var.instance-count

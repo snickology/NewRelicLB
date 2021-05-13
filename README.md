@@ -8,7 +8,7 @@ This is a Terraform that will deploy and configure AWS infrastructure.  The goal
 
 # Details
 This Terraform will deploy:
-- VPC and subnets
+- VPC and subnets (us-west-1)
 - EC2 instances (2) running Linux and Apache webserver (httpd)
 - Security Groups
 - Applicaton Load Balancer with a health check
@@ -17,7 +17,7 @@ This Terraform will deploy:
 1. AWS tenant and user account with admin rights
 2. An access key and secret to configure AWS infrastructure
 3. Terraform installed on your local system.  I used Terraform v0.14.9
-4. A key pair to use for adding to ec2 instances for login access
+4. A key pair to use for adding to ec2 instances for login access (although you should not have to login to any instances)
 
 # Important!!!
 Make sure you do not have a VPC using the same CIDR blocks used in this lab.  Any changes you would have to make, such as CIDR blocks for subnets, are in the variables.tf file.  Also make sure to destroy the Terraform when completed.
