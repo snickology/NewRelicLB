@@ -1,8 +1,3 @@
-# vars passed from ../main.tf
-variable "vpc-cidr-block" {}
-variable "subnet-cidr-block" {}
-variable "subnet-cidr-block2" {}
-
 # Create VPC in us-west-1
 resource "aws_vpc" "vpc-us-west-1" {
   cidr_block           = var.vpc-cidr-block

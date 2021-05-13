@@ -5,6 +5,12 @@ variable "bucket-name" {
   default     = "newreliccodechallenge-nick"
 }
 
+variable "pub_key" {
+  description = "Your pub key on your local machine"
+  type        = string
+  default     = "ec2_key.pub"
+}
+
 variable "vpc-cidr-block" {
   description = "The cidr block for the VPC"
   type        = string

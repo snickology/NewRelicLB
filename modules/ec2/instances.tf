@@ -1,22 +1,23 @@
-# vars passed from ../main.tf
-variable "instance-count" {}
-variable "instance-type" {}
-
-# Get Linux AMI ID using SSM Paramater
-data "aws_ssm_parameter" "linux-ami" {
-  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+# Source Linux AMI
+data "aws_ami" "linux-ami" {
+  owners = ["amazon"]
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-2.0.20210427.0-x86_64-gp2"]
+  }
 }
 
 # Create key-pair for logging into EC2 instance
 resource "aws_key_pair" "webserver-key" {
   key_name   = "webserver-key"
-  public_key = file("~/.ssh/id_rsa.pub")
+  public_key = file(var.pub_key)
 }
 
 # Create and bootstrap EC2 in us-west-1
 resource "aws_instance" "webserver-instance" {
   count                       = var.instance-count
-  ami                         = data.aws_ssm_parameter.linux-ami.value
+  ami                         = data.aws_ami.linux-ami.id
   instance_type               = var.instance-type
   key_name                    = aws_key_pair.webserver-key.key_name
   associate_public_ip_address = true
