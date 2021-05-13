@@ -10,7 +10,7 @@ resource "aws_lb" "webserver-lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.lb-sg.id]
-  subnets = [var.out-subnet-us-west-1-a, var.out-subnet-us-west-1-b]
+  subnets            = [var.out-subnet-us-west-1-a, var.out-subnet-us-west-1-b]
   tags = {
     Name = "NewRelic-LB"
   }
@@ -51,7 +51,7 @@ resource "aws_lb_listener" "listener-http" {
 # Attach instances to target group
 resource "aws_alb_target_group_attachment" "tg-attach" {
   target_group_arn = aws_alb_target_group.app-lb-tg.arn
-  port      = var.webserver-port
-  count     = var.instance-count
-  target_id = element(split(",", join(",", aws_instance.webserver-instance.*.id)), count.index)
+  port             = var.webserver-port
+  count            = var.instance-count
+  target_id        = element(split(",", join(",", aws_instance.webserver-instance.*.id)), count.index)
 }

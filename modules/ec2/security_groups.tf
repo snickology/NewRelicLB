@@ -2,7 +2,7 @@
 resource "aws_security_group" "lb-sg" {
   name        = "lb-sg"
   description = "Allow port 80 from anywhere"
-  vpc_id = var.out-vpc-us-west-1
+  vpc_id      = var.out-vpc-us-west-1
   ingress {
     description = "Allow 80 from anywhere"
     from_port   = 80
@@ -22,7 +22,7 @@ resource "aws_security_group" "lb-sg" {
 resource "aws_security_group" "webserver-sg" {
   name        = "webserver-sg"
   description = "Allow ssh port 22"
-  vpc_id = var.out-vpc-us-west-1
+  vpc_id      = var.out-vpc-us-west-1
   ingress {
     description = "Allow ssh port 22"
     from_port   = 22

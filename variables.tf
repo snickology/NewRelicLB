@@ -24,17 +24,19 @@ variable "subnet-cidr-block2" {
 }
 
 variable "webserver-port" {
-  description = "webserver port"
+  description = "Webserver port"
   type        = string
   default     = "80"
 }
 
 variable "instance-count" {
-  type    = string
-  default = "2"
+  description = "The number of instances to be deployed"
+  type        = string
+  default     = "2"
 }
 
 variable "instance-type" {
-  type    = string
-  default = "t3.micro"
+  description = "The type of instance to use"
+  type        = string
+  default     = "t3.micro"
 }
