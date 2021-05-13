@@ -24,7 +24,7 @@ module "vpc" {
 # Create Security Groups, Instances, and Load Balancer
 module "ec2" {
   source                 = "./modules/ec2"
-  pub_key = var.pub_key 
+  pub_key                = var.pub_key
   instance-count         = var.instance-count
   instance-type          = var.instance-type
   webserver-port         = var.webserver-port
