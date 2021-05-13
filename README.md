@@ -20,7 +20,7 @@ This Terraform will deploy:
 3. Terraform installed on your local system.  I used Terraform v0.14.9
 
 # Important!!!
-Make sure you do not have a VPC using the same CIDR blocks used in this lab.  Any changes you would have to make, such as CIDR blocks for subnets, are in the variables.tf file.  Also make sure to destroy the Terraform when completed.
+Make sure you do not have an existing VPC using the same CIDR blocks used in this lab.  I used 10.33.0.0/16.  Any changes you would have to make, such as CIDR blocks for subnets, are in the variables.tf file.  Also make sure to destroy the Terraform when completed.
 
 # Instructions
 1. Set your AWS credentials.  If you have AWS CLI installed and configured then you are good to go.  If you prefer to manually enter your credentials, you can uncomment the credentials in the provider block (main.tf) and enter your credentials there.
